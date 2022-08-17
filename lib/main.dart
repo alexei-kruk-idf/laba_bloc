@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:laba_bloc/presentation/lib/screen/main/main_screen.dart';
+import 'package:laba_bloc/presentation/lib/di/presentation_injector.dart';
+import 'package:laba_bloc/domain/lib/di/presentation_injector.dart';
 
 void main() {
+  initDomain();
+  initPresentation();
   runApp(const MyApp());
 }
 
@@ -14,32 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      home: const MainScreen(),
     );
   }
 }
