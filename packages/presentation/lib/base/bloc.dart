@@ -4,6 +4,8 @@ import 'bloc_tile.dart';
 
 abstract class Bloc {
   Stream<BlocTile> get dataStream;
+
+  void initState();
 }
 
 abstract class BlocImpl implements Bloc {
@@ -18,4 +20,7 @@ abstract class BlocImpl implements Bloc {
     _blocTile.updateParams(isLoading, data);
     _data.add(_blocTile.copy());
   }
+
+  @override
+  void initState() {}
 }

@@ -1,27 +1,43 @@
 import 'package:domain/usecase/palindrome_usecase.dart';
+import 'package:flutter/material.dart';
 import 'package:presentation/screen/main/main_tile.dart';
 
 import '../../base/bloc.dart';
 
 abstract class MainBloc extends Bloc {
   factory MainBloc(PalindromeUseCase useCase) => MainBlocImpl(useCase);
-  void getPalindrome(int n);
+  void getFactorial(int n);
+  TextEditingController get editController;
 }
 
 class MainBlocImpl extends BlocImpl implements MainBloc {
   final _tile = MainTile.init();
+  final _editController = TextEditingController();
   final PalindromeUseCase _useCase;
 
   MainBlocImpl(this._useCase);
 
-  _updateDate({bool? isLoading, MainTile? data}) {
-    handleData(isLoading: isLoading, data: data);
+  @override
+  void initState() {
+    super.initState();
+    _updateData(data: _tile);
+  }
+
+  _updateData({bool? isLoading, MainTile? data}) {
+    handleData(
+      isLoading: isLoading,
+      data: data,
+    );
   }
 
   @override
-  void getPalindrome(int n) async {
-    final factorial = await _useCase.getPalindrome(5);
+  void getFactorial(int n) async {
+    final currentValue = int.tryParse(_editController.text) ?? 0;
+    final factorial = await _useCase.getPalindrome(currentValue);
     _tile.factorial = factorial;
-    _updateDate(data: _tile);
+    _updateData(data: _tile);
   }
+
+  @override
+  TextEditingController get editController => _editController;
 }

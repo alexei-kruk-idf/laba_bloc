@@ -1,5 +1,5 @@
 class C {
   C._();
 
-  static const path = 'adawd';
+  static const apiPath = 'https://api.mathjs.org/v4/';
 }

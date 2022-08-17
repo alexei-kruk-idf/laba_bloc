@@ -8,4 +8,10 @@ abstract class BlocScreen extends StatefulWidget {}
 abstract class BlocScreenState<BS extends BlocScreen, B extends Bloc> extends State<BS> {
   @protected
   final bloc = GetIt.I.get<B>();
+
+  @override
+  void initState() {
+    super.initState();
+    bloc.initState();
+  }
 }
