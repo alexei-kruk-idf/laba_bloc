@@ -1,3 +1,3 @@
 abstract class PalindromeRepository {
-  Future<int> getPalindrome(int n);
+  Future<String> getFactorial(int n);
 }

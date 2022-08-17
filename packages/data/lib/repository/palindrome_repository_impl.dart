@@ -9,10 +9,10 @@ class PalindromeRepositoryImpl implements PalindromeRepository {
   PalindromeRepositoryImpl(this._apiService);
 
   @override
-  Future<int> getPalindrome(int n) async {
+  Future<String> getFactorial(int n) async {
     final params = {'expr': 'factorial($n)'};
     return _apiService.get(C.apiPath, queryParameters: params).then(
-          (response) => int.tryParse(response.data) ?? 0,
+          (response) => response.data,
         );
   }
 }

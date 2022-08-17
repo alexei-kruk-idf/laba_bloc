@@ -6,7 +6,7 @@ import '../../base/bloc.dart';
 
 abstract class MainBloc extends Bloc {
   factory MainBloc(PalindromeUseCase useCase) => MainBlocImpl(useCase);
-  void getFactorial(int n);
+  void getFactorial();
   TextEditingController get editController;
 }
 
@@ -31,9 +31,9 @@ class MainBlocImpl extends BlocImpl implements MainBloc {
   }
 
   @override
-  void getFactorial(int n) async {
+  void getFactorial() async {
     final currentValue = int.tryParse(_editController.text) ?? 0;
-    final factorial = await _useCase.getPalindrome(currentValue);
+    final factorial = await _useCase.getFactorial(currentValue);
     _tile.factorial = factorial;
     _updateData(data: _tile);
   }

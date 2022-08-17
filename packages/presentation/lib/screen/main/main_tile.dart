@@ -1,8 +1,8 @@
 class MainTile {
   MainTile(this.factorial);
-  int factorial;
+  String factorial;
 
-  factory MainTile.init() => MainTile(0);
+  factory MainTile.init() => MainTile('0');
 
   MainTile copy() => MainTile(factorial);
 }

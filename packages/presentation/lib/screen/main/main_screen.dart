@@ -5,7 +5,8 @@ import '../../base/bloc_screen.dart';
 import 'main_bloc.dart';
 
 class MainScreen extends BlocScreen {
-  MainScreen({Key? key}) : super();
+  const MainScreen({Key? key}) : super(key: key);
+
   @override
   State createState() => _MainScreenState();
 }
@@ -28,7 +29,7 @@ class _MainScreenState extends BlocScreenState<MainScreen, MainBloc> {
                     Text(blocData.factorial.toString()),
                     TextField(controller: bloc.editController),
                     ElevatedButton(
-                      onPressed: () => bloc.getFactorial(5),
+                      onPressed: () => bloc.getFactorial(),
                       child: const Text('Get factorial'),
                     ),
                   ],

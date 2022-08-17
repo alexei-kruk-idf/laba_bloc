@@ -2,7 +2,7 @@ import '../repository/palindrome_repository.dart';
 
 abstract class PalindromeUseCase {
   factory PalindromeUseCase(PalindromeRepository repository) => PalindromeUseCaseImpl(repository);
-  Future<int> getPalindrome(int n);
+  Future<String> getFactorial(int n);
 }
 
 class PalindromeUseCaseImpl implements PalindromeUseCase {
@@ -10,7 +10,7 @@ class PalindromeUseCaseImpl implements PalindromeUseCase {
 
   PalindromeUseCaseImpl(this._repository);
   @override
-  Future<int> getPalindrome(int n) {
-    return _repository.getPalindrome(n);
+  Future<String> getFactorial(int n) {
+    return _repository.getFactorial(n);
   }
 }
