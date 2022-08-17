@@ -3,9 +3,9 @@ import 'package:get_it/get_it.dart';
 
 import '../screen/main/main_bloc.dart';
 
-void initPresentation() {
+void initPresentationInjector() {
   GetIt.I.registerFactory<MainBloc>(
-    () => MainBloc(
+    () => MainBlocImpl(
       GetIt.I.get<PalindromeUseCase>(),
     ),
   );

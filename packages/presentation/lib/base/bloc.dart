@@ -1,12 +1,12 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'bloc_tile.dart';
 
 abstract class Bloc {
   Stream<BlocTile> get dataStream;
 }
 
-abstract class BlocImpl extends Bloc {
+abstract class BlocImpl implements Bloc {
   final _data = StreamController<BlocTile>();
   final _blocTile = BlocTile.init();
 
@@ -14,7 +14,7 @@ abstract class BlocImpl extends Bloc {
   Stream<BlocTile> get dataStream => _data.stream;
 
   @protected
-  void handleData({bool? isLoading, bool? isValid, dynamic data}) {
+  void handleData({bool? isLoading, dynamic data}) {
     _blocTile.updateParams(isLoading, data);
     _data.add(_blocTile.copy());
   }
