@@ -28,18 +28,16 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
-
-  dio: ^4.0.6
-
-  flutter:
-    sdk: flutter
-  get_it: ^7.2.0
-  domain:
-    path: packages/domain
   data:
     path: packages/data
+  domain:
+    path: packages/domain
   presentation:
     path: packages/presentation
+  flutter:
+    sdk: flutter
+  dio: ^4.0.6
+  get_it: ^7.2.0
 
 
 dev_dependencies:
