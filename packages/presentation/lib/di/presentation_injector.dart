@@ -1,10 +1,10 @@
 import 'package:domain/usecase/palindrome_usecase.dart';
 import 'package:get_it/get_it.dart';
-import 'package:presentation/screen/main/bloc/main_bloc.dart';
+import 'package:presentation/screen/main/cubit/main_cubit.dart';
 
 void initPresentationInjector() {
-  GetIt.I.registerFactory<MainBloc>(
-    () => MainBloc(
+  GetIt.I.registerFactory<MainCubit>(
+    () => MainCubit(
       GetIt.I.get<PalindromeUseCase>(),
     ),
   );

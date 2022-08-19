@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:presentation/base/bloc_screen.dart';
-import 'bloc/main_bloc.dart';
+import 'cubit/main_cubit.dart';
 
 class MainScreen extends BlocScreen {
   const MainScreen({Key? key}) : super(key: key);
@@ -10,12 +10,12 @@ class MainScreen extends BlocScreen {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends BlocScreenState<MainScreen, MainBloc> {
+class _MainScreenState extends BlocScreenState<MainScreen, MainCubit> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<MainBloc>(
+    return BlocProvider<MainCubit>(
       create: (context) => bloc,
-      child: BlocBuilder<MainBloc, MainBlocState>(
+      child: BlocBuilder<MainCubit, MainBlocState>(
         builder: (context, state) {
           if (!state.isLoading) {
             return Scaffold(
@@ -29,7 +29,7 @@ class _MainScreenState extends BlocScreenState<MainScreen, MainBloc> {
                       onChanged: bloc.onTextChanged,
                     ),
                     ElevatedButton(
-                      onPressed: () => bloc.add(MainBlocGetFactorial()),
+                      onPressed: () => bloc.getFactorial(),
                       child: const Text('Get factorial'),
                     ),
                   ],

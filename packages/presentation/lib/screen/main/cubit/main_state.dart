@@ -1,4 +1,4 @@
-part of 'main_bloc.dart';
+part of 'main_cubit.dart';
 
 class MainBlocState {
   final String factorial;
