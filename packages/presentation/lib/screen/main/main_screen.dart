@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:presentation/base/bloc_screen.dart';
-import 'bloc/main_bloc_bloc.dart';
+import 'bloc/main_bloc.dart';
 
 class MainScreen extends BlocScreen {
   const MainScreen({Key? key}) : super(key: key);
@@ -17,21 +17,32 @@ class _MainScreenState extends BlocScreenState<MainScreen, MainBloc> {
       create: (context) => bloc,
       child: BlocBuilder<MainBloc, MainBlocState>(
         builder: (context, state) {
-          return Scaffold(
-            body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(state.factorial),
-                  TextField(controller: bloc.editController),
-                  ElevatedButton(
-                    onPressed: () => bloc.add(MainBlocFactorialEvent()),
-                    child: const Text('Get factorial'),
-                  ),
-                ],
+          if (!state.isLoading) {
+            return Scaffold(
+              body: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(state.factorial),
+                    TextField(
+                      controller: bloc.editController,
+                      onChanged: bloc.onTextChanged,
+                    ),
+                    ElevatedButton(
+                      onPressed: () => bloc.add(MainBlocGetFactorial()),
+                      child: const Text('Get factorial'),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          );
+            );
+          } else {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
         },
       ),
     );
