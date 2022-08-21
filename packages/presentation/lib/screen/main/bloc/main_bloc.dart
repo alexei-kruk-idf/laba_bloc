@@ -32,7 +32,7 @@ class MainBloc extends Bloc<MainBlocEvent, MainBlocState> {
     emit(state.copyWith(isLoading: true));
     final currentValue = int.tryParse(state.currentValue) ?? 0;
     final factorial = await _useCase.getFactorial(currentValue);
-    await Future.delayed(const Duration(seconds: 1));
+
     emit(state.copyWith(
       factorial: factorial,
       isLoading: false,
