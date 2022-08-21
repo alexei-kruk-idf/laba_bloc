@@ -20,7 +20,7 @@ class _MainScreenState extends BlocScreenState<MainScreen, MainBloc> {
         if (snapshot.data != null) {
           final data = snapshot.data as BlocTile;
           final blocData = data.data;
-          if (blocData is MainTile) {
+          if (blocData is MainTile && !data.isLoading) {
             return Scaffold(
               body: Center(
                 child: Column(
@@ -37,8 +37,10 @@ class _MainScreenState extends BlocScreenState<MainScreen, MainBloc> {
               ),
             );
           } else {
-            return Scaffold(
-              body: Container(),
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
             );
           }
         } else {

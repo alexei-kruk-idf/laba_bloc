@@ -32,10 +32,14 @@ class MainBlocImpl extends BlocImpl implements MainBloc {
 
   @override
   void getFactorial() async {
+    _updateData(isLoading: true);
     final currentValue = int.tryParse(_editController.text) ?? 0;
     final factorial = await _useCase.getFactorial(currentValue);
     _tile.factorial = factorial;
-    _updateData(data: _tile);
+    _updateData(
+      data: _tile,
+      isLoading: false,
+    );
   }
 
   @override
