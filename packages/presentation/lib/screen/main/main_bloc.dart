@@ -1,11 +1,11 @@
-import 'package:domain/usecase/palindrome_usecase.dart';
+import 'package:domain/usecase/factorial_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/screen/main/main_tile.dart';
 
 import '../../base/bloc.dart';
 
 abstract class MainBloc extends Bloc {
-  factory MainBloc(PalindromeUseCase useCase) => MainBlocImpl(useCase);
+  factory MainBloc(FactorialUseCase useCase) => MainBlocImpl(useCase);
   void getFactorial();
   TextEditingController get editController;
 }
@@ -13,7 +13,7 @@ abstract class MainBloc extends Bloc {
 class MainBlocImpl extends BlocImpl implements MainBloc {
   final _tile = MainTile.init();
   final _editController = TextEditingController();
-  final PalindromeUseCase _useCase;
+  final FactorialUseCase _useCase;
 
   MainBlocImpl(this._useCase);
 
