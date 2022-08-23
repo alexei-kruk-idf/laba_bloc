@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
-import 'package:domain/usecase/palindrome_usecase.dart';
+import 'package:domain/usecase/factorial_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 part 'main_state.dart';
 
 class MainCubit extends Cubit<MainBlocState> {
-  final PalindromeUseCase _useCase;
+  final FactorialUseCase _useCase;
   final _editController = TextEditingController();
   TextEditingController get editController => _editController;
 

@@ -1,12 +1,12 @@
-import 'package:domain/repository/palindrome_repository.dart';
+import 'package:domain/repository/factorial_repository.dart';
 
 import '../service/api_base_service.dart';
 import '../utils/const.dart';
 
-class PalindromeRepositoryImpl implements PalindromeRepository {
+class FactorialRepositoryImpl implements FactorialRepository {
   final ApiBaseService _apiService;
 
-  PalindromeRepositoryImpl(this._apiService);
+  FactorialRepositoryImpl(this._apiService);
 
   @override
   Future<String> getFactorial(int n) async {
