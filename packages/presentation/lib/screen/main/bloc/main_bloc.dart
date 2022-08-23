@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
-import 'package:domain/usecase/palindrome_usecase.dart';
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+import 'package:domain/usecase/factorial_usecase.dart';
 part 'main_bloc_event.dart';
 part 'main_bloc_state.dart';
 
 class MainBloc extends Bloc<MainBlocEvent, MainBlocState> {
-  final PalindromeUseCase _useCase;
+  final FactorialUseCase _useCase;
   final _editController = TextEditingController();
   TextEditingController get editController => _editController;
 

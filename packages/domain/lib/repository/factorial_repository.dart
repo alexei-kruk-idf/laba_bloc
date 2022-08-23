@@ -1,3 +1,3 @@
-abstract class PalindromeRepository {
+abstract class FactorialRepository {
   Future<String> getFactorial(int n);
 }
