@@ -1,7 +1,10 @@
+import 'package:data/repository/factorial_repository_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/base/bloc_tile.dart';
 import 'package:presentation/screen/main/main_tile.dart';
 import '../../base/bloc_screen.dart';
+import 'package:domain/usecase/factorial_usecase.dart';
+
 import 'main_bloc.dart';
 
 class MainScreen extends BlocScreen {
@@ -12,6 +15,11 @@ class MainScreen extends BlocScreen {
 }
 
 class _MainScreenState extends BlocScreenState<MainScreen, MainBloc> {
+  _MainScreenState()
+      : super(
+          MainBloc(FactorialUseCase(FactorialRepositoryImpl())),
+        );
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(

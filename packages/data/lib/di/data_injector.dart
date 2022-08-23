@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:domain/repository/palindrome_repository.dart';
 import 'package:get_it/get_it.dart';
 
-import '../repository/palindrome_repository_impl.dart';
+import '../repository/factorial_repository_impl.dart';
 import '../service/api_base_service.dart';
 
 void initDataInjector() {
@@ -17,9 +17,9 @@ void initDataInjector() {
     ),
   );
 
-  GetIt.I.registerSingleton<PalindromeRepository>(
-    PalindromeRepositoryImpl(
-      GetIt.I.get<ApiBaseService>(),
-    ),
-  );
+  // GetIt.I.registerSingleton<FactorialRepository>(
+  //   // FactorialRepositoryImpl(
+  //   //   GetIt.I.get<ApiBaseService>(),
+  //   // ),
+  // );
 }
